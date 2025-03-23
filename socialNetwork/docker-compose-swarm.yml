@@ -522,8 +522,8 @@ services:
       restart_policy:
         condition: on-failure
       placement:
-        constraints: [node.role == worker]
-        #constraints: [node.hostname == ravi-vm3] 
+        # constraints: [node.role == worker]
+        constraints: [node.hostname == new-WK35-RS] 
     depends_on:
       - cassandra
 
