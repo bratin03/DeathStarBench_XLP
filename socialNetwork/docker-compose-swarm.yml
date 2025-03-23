@@ -23,7 +23,7 @@ services:
         condition: any
       placement:
         #constraints: [node.role == worker]
-        constraints: [node.hostname == new-WK3] 
+        constraints: [node.hostname == new-WK35-RS] 
     depends_on:
       - jaeger-collector
 
@@ -35,7 +35,7 @@ services:
       replicas: 1
       placement:
         #constraints: [node.role == worker]
-        constraints: [node.hostname == new-WK2]
+        constraints: [node.hostname == new-WK35-RS]
       restart_policy:
         condition: any
     command: ["ComposePostService"]
@@ -50,7 +50,7 @@ services:
     deploy:
       placement:
         #constraints: [node.role == worker]
-        constraints: [node.hostname == new-WK3] 
+        constraints: [node.hostname == new-WK35-RS] 
     depends_on:
       - jaeger-agent
       - jaeger-query
@@ -71,7 +71,7 @@ services:
         condition: any
       placement:
         #constraints: [node.role == worker]
-        constraints: [node.hostname == new-WK3] 
+        constraints: [node.hostname == new-WK35-RS] 
     command: ["HomeTimelineService"]
     hostname: home-timeline-service
     #image: usatpath01/socialnetwork-compose-post-service
@@ -91,7 +91,7 @@ services:
         condition: any
       placement:
         #constraints: [node.role == worker]
-        constraints: [node.hostname == new-WK3] 
+        constraints: [node.hostname == new-WK35-RS] 
     hostname: media-frontend
     image: yg397/media-frontend:xenial
     ports:
@@ -109,7 +109,7 @@ services:
     deploy:
       placement:
         #constraints: [node.role == worker]
-        constraints: [node.hostname == new-WK3] 
+        constraints: [node.hostname == new-WK35-RS] 
     command:
       - "-m 16384"
       - "-t 8"
@@ -130,7 +130,7 @@ services:
     deploy:
       placement:
         #constraints: [node.role == worker]
-        constraints: [node.hostname == new-WK3] 
+        constraints: [node.hostname == new-WK35-RS] 
 
   media-service:
     depends_on:
@@ -143,7 +143,7 @@ services:
         condition: any
       placement:
         #constraints: [node.role == worker]
-        constraints: [node.hostname == new-WK3] 
+        constraints: [node.hostname == new-WK35-RS] 
     command: ["MediaService"]
     hostname: media-service
     image: usatpath01/socialnetwork 
@@ -161,7 +161,7 @@ services:
         condition: any
       placement:
         #constraints: [node.role == worker]
-        constraints: [node.hostname == new-WK3] 
+        constraints: [node.hostname == new-WK35-RS] 
     hostname: nginx-web-server
     image: yg397/openresty-thrift:xenial
     ports:
@@ -184,7 +184,7 @@ services:
     deploy:
       placement:
         #constraints: [node.role == worker]
-        constraints: [node.hostname == new-WK3] 
+        constraints: [node.hostname == new-WK35-RS] 
     command:
       - "-m 16384"
       - "-t 8"
@@ -195,7 +195,7 @@ services:
     deploy:
       placement:
         #constraints: [node.role == worker]
-        constraints: [node.hostname == new-WK3] 
+        constraints: [node.hostname == new-WK35-RS] 
     depends_on:
       - jaeger-agent
       - jaeger-query
@@ -218,7 +218,7 @@ services:
         condition: any
       placement:
         #constraints: [node.role == worker]
-        constraints: [node.hostname == new-WK3] 
+        constraints: [node.hostname == new-WK35-RS] 
     command: ["PostStorageService"]
     hostname: post-storage-service
     image: usatpath01/socialnetwork 
@@ -235,7 +235,7 @@ services:
     deploy:
       placement:
         #constraints: [node.role == worker]
-        constraints: [node.hostname == new-WK3] 
+        constraints: [node.hostname == new-WK35-RS] 
     command: "mongod --nojournal --quiet --config /social-network-microservices/config/mongod.conf"
     # command: "mongod --serviceExecutor adaptive --listenBacklog 1024 --syncdelay 3600 --wiredTigerCacheSizeGB 16"
     volumes:
@@ -246,7 +246,7 @@ services:
     deploy:
       placement:
         #constraints: [node.role == worker]
-        constraints: [node.hostname == new-WK3] 
+        constraints: [node.hostname == new-WK35-RS] 
     depends_on:
       - jaeger-agent
       - jaeger-query
@@ -268,7 +268,7 @@ services:
         condition: any
       placement:
         #constraints: [node.role == worker]
-        constraints: [node.hostname == new-WK3] 
+        constraints: [node.hostname == new-WK35-RS] 
     command: ["SocialGraphService"]
     hostname: social-graph-service
     image: usatpath01/socialnetwork 
@@ -284,7 +284,7 @@ services:
       replicas: 1
       placement:
         #constraints: [node.role == worker]
-        constraints: [node.hostname == new-WK3]
+        constraints: [node.hostname == new-WK35-RS]
       restart_policy:
         condition: any
     command: ["TextService"]
@@ -304,7 +304,7 @@ services:
         condition: any
       placement:
         #constraints: [node.role == worker]
-        constraints: [node.hostname == new-WK3] 
+        constraints: [node.hostname == new-WK35-RS] 
     command: ["UniqueIdService"]
     hostname: unique-id-service
     image: usatpath01/socialnetwork 
@@ -320,7 +320,7 @@ services:
     deploy:
       placement:
         #constraints: [node.role == worker]
-        constraints: [node.hostname == new-WK3] 
+        constraints: [node.hostname == new-WK35-RS] 
     image: memcached
     command:
       - "-m 16384"
@@ -337,7 +337,7 @@ services:
     deploy:
       placement:
         #constraints: [node.role == worker]
-        constraints: [node.hostname == new-WK3] 
+        constraints: [node.hostname == new-WK35-RS] 
     command: "mongod --nojournal --quiet --config /social-network-microservices/config/mongod.conf"
     # command: "mongod --serviceExecutor adaptive --listenBacklog 1024 --syncdelay 3600 --wiredTigerCacheSizeGB 36"
     volumes:
@@ -355,7 +355,7 @@ services:
         condition: any
       placement:
         #constraints: [node.role == worker]
-        constraints: [node.hostname == new-WK3] 
+        constraints: [node.hostname == new-WK35-RS] 
     command: ["UrlShortenService"]
     hostname: url-shorten-service
     image: usatpath01/socialnetwork 
@@ -372,7 +372,7 @@ services:
     deploy:
       placement:
         #constraints: [node.role == worker]
-        constraints: [node.hostname == new-WK3] 
+        constraints: [node.hostname == new-WK35-RS] 
     command:
       - "-m 16384"
       - "-t 8"
@@ -387,7 +387,7 @@ services:
       replicas: 1
       placement:
        #constraints: [node.role == worker]
-       constraints: [node.hostname == new-WK3]
+       constraints: [node.hostname == new-WK35-RS]
       restart_policy:
         condition: any
     command: ["UserMentionService"]
@@ -405,7 +405,7 @@ services:
     deploy:
       placement:
         #constraints: [node.role == worker]
-        constraints: [node.hostname == new-WK3] 
+        constraints: [node.hostname == new-WK35-RS] 
     image: mongo:4.4.6
     command: "mongod --nojournal --quiet --config /social-network-microservices/config/mongod.conf"
     # command: "mongod --serviceExecutor adaptive --listenBacklog 1024 --syncdelay 3600 --wiredTigerCacheSizeGB 8"
@@ -424,7 +424,7 @@ services:
         condition: any
       placement:
         #constraints: [node.role == worker]
-        constraints: [node.hostname == new-WK3] 
+        constraints: [node.hostname == new-WK35-RS] 
     command: ["UserService"]
     hostname: user-service
     image: usatpath01/socialnetwork 
@@ -442,7 +442,7 @@ services:
     deploy:
       placement:
         #constraints: [node.role == worker]
-        constraints: [node.hostname == new-WK3] 
+        constraints: [node.hostname == new-WK35-RS] 
     # command: "mongod --serviceExecutor adaptive --listenBacklog 1024 --syncdelay 3600 --wiredTigerCacheSizeGB 75"
     volumes:
       - ./config:/social-network-microservices/config
@@ -458,7 +458,7 @@ services:
     deploy:
       placement:
         #constraints: [node.role == worker]
-        constraints: [node.hostname == new-WK3] 
+        constraints: [node.hostname == new-WK35-RS] 
     volumes:
       - ./config:/social-network-microservices/config
       - ./keys:/keys
@@ -473,7 +473,7 @@ services:
         condition: any
       placement:
         #constraints: [node.role == worker]
-        constraints: [node.hostname == utkalika-ibm5] 
+        constraints: [node.hostname == new-WK35-RS] 
     command: ["UserTimelineService"]
     hostname: user-timeline-service
     image: usatpath01/socialnetwork 
@@ -497,7 +497,7 @@ services:
         condition: any
       placement:
         #constraints: [node.role == worker]
-        constraints: [node.hostname == ravi-vm2] 
+        constraints: [node.hostname == new-WK35-RS]
     depends_on:
       - cassandra-schema
 
@@ -512,7 +512,7 @@ services:
         condition: any
       placement:
         #constraints: [node.role == worker]
-        constraints: [node.hostname == ravi-vm1] 
+        constraints: [node.hostname == new-WK35-RS]
     depends_on:
       - cassandra-schema
 
@@ -534,8 +534,8 @@ services:
     deploy:
       placement:
         #constraints: [node.role == worker]
-        constraints: [node.hostname == ravi-vm3] 
-
+        constraints: [node.hostname == new-WK35-RS]
+  
 networks:
   default:
     driver: overlay
