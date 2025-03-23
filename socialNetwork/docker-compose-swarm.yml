@@ -497,7 +497,7 @@ services:
         condition: any
       placement:
         #constraints: [node.role == worker]
-        constraints: [node.hostname == new-WK36-RS]
+        constraints: [node.hostname == new-WK35-RS]
     depends_on:
       - cassandra-schema
 
@@ -534,7 +534,7 @@ services:
     deploy:
       placement:
         #constraints: [node.role == worker]
-        constraints: [node.hostname == new-WK36-RS]
+        constraints: [node.hostname == new-WK35-RS]
 
 networks:
   default:
