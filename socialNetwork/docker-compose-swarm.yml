@@ -35,7 +35,7 @@ services:
       replicas: 1
       placement:
         #constraints: [node.role == worker]
-        constraints: [node.hostname == new-WK35-RS]
+        constraints: [node.hostname == new-WK36-RS]
       restart_policy:
         condition: any
     command: ["ComposePostService"]
