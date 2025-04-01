@@ -38,6 +38,11 @@ services:
         constraints: [node.hostname == new-WK36-RS]
       restart_policy:
         condition: any
+      resourcses:
+        limits:
+          cpus: '1.0'
+        reservations:
+          cpus: '1.0'
     command: ["ComposePostService"]
     hostname: compose-post-service
     #image: deathstarbench/social-network-microservices
