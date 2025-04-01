@@ -38,7 +38,7 @@ services:
         constraints: [node.hostname == new-WK36-RS]
       restart_policy:
         condition: any
-      resourcses:
+      resources:
         limits:
           cpus: '1.0'
         reservations:
